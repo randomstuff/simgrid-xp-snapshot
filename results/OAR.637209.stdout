@@ -1,0 +1,940 @@
+* Prepare the environment
+** Install packages
+** Machine information
+Fri Sep 25 11:39:51 CEST 2015
+Linux graphite-3.nancy.grid5000.fr 3.16.0-4-amd64 #1 SMP Debian 3.16.7-ckt11-1+deb8u2 (2015-07-17) x86_64 GNU/Linux
+Distributor ID:	Debian
+Description:	Debian GNU/Linux 8.1 (jessie)
+Release:	8.1
+Codename:	jessie
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+MemTotal:       264638168 kB
+MemFree:        263294424 kB
+MemAvailable:   263806860 kB
+cc (Debian 4.9.2-10) 4.9.2
+c++ (Debian 4.9.2-10) 4.9.2
+git version 2.1.4
+GNU Make 4.0
+cmake version 3.0.2
+             total       used       free     shared    buffers     cached
+Mem:     264638168    1345444  263292724       8928      31520     681688
+-/+ buffers/cache:     632236  264005932
+Swap:      3905532          0    3905532
+** Package list
+ii acl 2.2.52-2 amd64
+ii adduser 3.113+nmu3 all
+ii apt 1.0.9.8 amd64
+ii apt-utils 1.0.9.8 amd64
+ii base-files 8+deb8u1 amd64
+ii base-passwd 3.5.37 amd64
+ii bash 4.3-11+b1 amd64
+ii binutils 2.25-5 amd64
+ii bsdmainutils 9.0.6 amd64
+ii bsdutils 1:2.25.2-6 amd64
+ii ca-certificates 20141019 all
+ii cmake 3.0.2-1 amd64
+ii cmake-curses-gui 3.0.2-1 amd64
+ii cmake-data 3.0.2-1 all
+ii coreutils 8.23-4 amd64
+ii cpio 2.11+dfsg-4.1 amd64
+ii cpp 4:4.9.2-2 amd64
+ii cpp-4.9 4.9.2-10 amd64
+ii cron 3.0pl1-127 amd64
+ii dash 0.5.7-4+b1 amd64
+ii debconf 1.5.56 all
+ii debconf-i18n 1.5.56 all
+ii debian-archive-keyring 2014.3 all
+ii debian-keyring 2015.04.10 all
+ii debianutils 4.4+b1 amd64
+ii diffutils 1:3.3-1+b1 amd64
+ii dmidecode 2.12-3 amd64
+ii dmsetup 2:1.02.90-2.2 amd64
+ii dpkg 1.17.25 amd64
+ii e2fslibs:amd64 1.42.12-1.1 amd64
+ii e2fsprogs 1.42.12-1.1 amd64
+ii findutils 4.4.2-9+b1 amd64
+ii firmware-bnx2 0.43 all
+ii firmware-bnx2x 0.43 all
+ii g++ 4:4.9.2-2 amd64
+ii g++-4.9 4.9.2-10 amd64
+ii gcc 4:4.9.2-2 amd64
+ii gcc-4.8-base:amd64 4.8.4-1 amd64
+ii gcc-4.9 4.9.2-10 amd64
+ii gcc-4.9-base:amd64 4.9.2-10 amd64
+ii git 1:2.1.4-2.1 amd64
+ii git-man 1:2.1.4-2.1 all
+ii gnupg 1.4.18-7 amd64
+ii gpgv 1.4.18-7 amd64
+ii grep 2.20-4.1 amd64
+ii groff-base 1.22.2-8 amd64
+ii gzip 1.6-4 amd64
+ii hostname 3.15 amd64
+ii ifupdown 0.7.53.1 amd64
+ii init 1.22 amd64
+ii init-system-helpers 1.22 all
+ii initramfs-tools 0.120 all
+ii initscripts 2.88dsf-59 amd64
+ii insserv 1.14.0-5 amd64
+ii iproute2 3.16.0-2 amd64
+ii iptables 1.4.21-2+b1 amd64
+ii iputils-ping 3:20121221-5+b2 amd64
+ii isc-dhcp-client 4.3.1-6 amd64
+ii isc-dhcp-common 4.3.1-6 amd64
+ii klibc-utils 2.0.4-2 amd64
+ii kmod 18-3 amd64
+ii less 458-3 amd64
+ii libacl1:amd64 2.2.52-2 amd64
+ii libapt-inst1.5:amd64 1.0.9.8 amd64
+ii libapt-pkg4.12:amd64 1.0.9.8 amd64
+ii libarchive13:amd64 3.1.2-11 amd64
+ii libasan0:amd64 4.8.4-1 amd64
+ii libasan1:amd64 4.9.2-10 amd64
+ii libatomic1:amd64 4.9.2-10 amd64
+ii libattr1:amd64 1:2.4.47-2 amd64
+ii libaudit-common 1:2.4-1 all
+ii libaudit1:amd64 1:2.4-1+b1 amd64
+ii libblkid1:amd64 2.25.2-6 amd64
+ii libboost-context-dev:amd64 1.55.0.2 amd64
+ii libboost-context1.55-dev:amd64 1.55.0+dfsg-3 amd64
+ii libboost-context1.55.0:amd64 1.55.0+dfsg-3 amd64
+ii libboost-dev:amd64 1.55.0.2 amd64
+ii libboost-iostreams1.55.0:amd64 1.55.0+dfsg-3 amd64
+ii libboost1.55-dev:amd64 1.55.0+dfsg-3 amd64
+ii libbsd0:amd64 0.7.0-2 amd64
+ii libbz2-1.0:amd64 1.0.6-7+b3 amd64
+ii libc-bin 2.19-18 amd64
+ii libc-dev-bin 2.19-18+deb8u1 amd64
+ii libc6:amd64 2.19-18+deb8u1 amd64
+ii libc6-dev:amd64 2.19-18+deb8u1 amd64
+ii libcap2:amd64 1:2.24-8 amd64
+ii libcap2-bin 1:2.24-8 amd64
+ii libcilkrts5:amd64 4.9.2-10 amd64
+ii libcloog-isl4:amd64 0.18.2-1+b2 amd64
+ii libcomerr2:amd64 1.42.12-1.1 amd64
+ii libcryptsetup4:amd64 2:1.6.6-5 amd64
+ii libcurl3:amd64 7.38.0-4+deb8u2 amd64
+ii libcurl3-gnutls:amd64 7.38.0-4+deb8u2 amd64
+ii libdb5.3:amd64 5.3.28-9 amd64
+ii libdebconfclient0:amd64 0.192 amd64
+ii libdevmapper1.02.1:amd64 2:1.02.90-2.2 amd64
+ii libdns-export100 1:9.9.5.dfsg-9+deb8u1 amd64
+ii libdw-dev:amd64 0.159-4.2 amd64
+ii libdw1:amd64 0.159-4.2 amd64
+ii libedit2:amd64 3.1-20140620-2 amd64
+ii libelf-dev:amd64 0.159-4.2 amd64
+ii libelf1:amd64 0.159-4.2 amd64
+ii liberror-perl 0.17-1.1 all
+ii libestr0 0.1.9-1.1 amd64
+ii libexpat1:amd64 2.1.0-6+deb8u1 amd64
+ii libffi6:amd64 3.1-2+b2 amd64
+ii libgcc-4.8-dev:amd64 4.8.4-1 amd64
+ii libgcc-4.9-dev:amd64 4.9.2-10 amd64
+ii libgcc1:amd64 1:4.9.2-10 amd64
+ii libgcrypt20:amd64 1.6.3-2 amd64
+ii libgdbm3:amd64 1.8.3-13.1 amd64
+ii libgmp10:amd64 2:6.0.0+dfsg-6 amd64
+ii libgnutls-deb0-28:amd64 3.3.8-6+deb8u1 amd64
+ii libgnutls-openssl27:amd64 3.3.8-6+deb8u1 amd64
+ii libgomp1:amd64 4.9.2-10 amd64
+ii libgpg-error0:amd64 1.17-3 amd64
+ii libgpm2:amd64 1.20.4-6.1+b2 amd64
+ii libgssapi-krb5-2:amd64 1.12.1+dfsg-19 amd64
+ii libhogweed2:amd64 2.7.1-5 amd64
+ii libicu52:amd64 52.1-8 amd64
+ii libidn11:amd64 1.29-1+b2 amd64
+ii libirs-export91 1:9.9.5.dfsg-9+deb8u1 amd64
+ii libisc-export95 1:9.9.5.dfsg-9+deb8u1 amd64
+ii libisccfg-export90 1:9.9.5.dfsg-9+deb8u1 amd64
+ii libisl10:amd64 0.12.2-2 amd64
+ii libitm1:amd64 4.9.2-10 amd64
+ii libjson-c2:amd64 0.11-4 amd64
+ii libk5crypto3:amd64 1.12.1+dfsg-19 amd64
+ii libkeyutils1:amd64 1.5.9-5+b1 amd64
+ii libklibc 2.0.4-2 amd64
+ii libkmod2:amd64 18-3 amd64
+ii libkrb5-3:amd64 1.12.1+dfsg-19 amd64
+ii libkrb5support0:amd64 1.12.1+dfsg-19 amd64
+ii libldap-2.4-2:amd64 2.4.40+dfsg-1+deb8u1 amd64
+ii liblocale-gettext-perl 1.05-8+b1 amd64
+ii liblogging-stdlog0:amd64 1.0.4-1 amd64
+ii liblognorm1:amd64 1.0.1-3 amd64
+ii liblsan0:amd64 4.9.2-10 amd64
+ii liblzma5:amd64 5.1.1alpha+20120614-2+b3 amd64
+ii liblzo2-2:amd64 2.08-1.2 amd64
+ii libmnl0:amd64 1.0.3-5 amd64
+ii libmount1:amd64 2.25.2-6 amd64
+ii libmpc3:amd64 1.0.2-1 amd64
+ii libmpfr4:amd64 3.1.2-2 amd64
+ii libncurses5:amd64 5.9+20140913-1+b1 amd64
+ii libncursesw5:amd64 5.9+20140913-1+b1 amd64
+ii libnetfilter-acct1:amd64 1.0.2-1.1 amd64
+ii libnettle4:amd64 2.7.1-5 amd64
+ii libnewt0.52:amd64 0.52.17-1+b1 amd64
+ii libnfnetlink0:amd64 1.0.1-3 amd64
+ii libp11-kit0:amd64 0.20.7-1 amd64
+ii libpam-modules:amd64 1.1.8-3.1 amd64
+ii libpam-modules-bin 1.1.8-3.1 amd64
+ii libpam-runtime 1.1.8-3.1 all
+ii libpam0g:amd64 1.1.8-3.1 amd64
+ii libpcre3:amd64 2:8.35-3.3 amd64
+ii libpipeline1:amd64 1.4.0-1 amd64
+ii libpopt0:amd64 1.16-10 amd64
+ii libprocps3:amd64 2:3.3.9-9 amd64
+ii libpsl0:amd64 0.5.1-1 amd64
+ii libpython-stdlib:amd64 2.7.9-1 amd64
+ii libpython2.7-minimal:amd64 2.7.9-2 amd64
+ii libpython2.7-stdlib:amd64 2.7.9-2 amd64
+ii libquadmath0:amd64 4.9.2-10 amd64
+ii libreadline6:amd64 6.3-8+b3 amd64
+ii librtmp1:amd64 2.4+20150115.gita107cef-1 amd64
+ii libsasl2-2:amd64 2.1.26.dfsg1-13 amd64
+ii libsasl2-modules-db:amd64 2.1.26.dfsg1-13 amd64
+ii libselinux1:amd64 2.3-2 amd64
+ii libsemanage-common 2.3-1 all
+ii libsemanage1:amd64 2.3-1+b1 amd64
+ii libsepol1:amd64 2.3-2 amd64
+ii libsigc++-2.0-0c2a:amd64 2.4.0-1 amd64
+ii libslang2:amd64 2.3.0-2 amd64
+ii libsmartcols1:amd64 2.25.2-6 amd64
+ii libsqlite3-0:amd64 3.8.7.1-1+deb8u1 amd64
+ii libss2:amd64 1.42.12-1.1 amd64
+ii libssh2-1:amd64 1.4.3-4.1 amd64
+ii libssl1.0.0:amd64 1.0.1k-3+deb8u1 amd64
+ii libstdc++-4.8-dev:amd64 4.8.4-1 amd64
+ii libstdc++-4.9-dev:amd64 4.9.2-10 amd64
+ii libstdc++6:amd64 4.9.2-10 amd64
+ii libsystemd0:amd64 215-17+deb8u1 amd64
+ii libtasn1-6:amd64 4.2-3+deb8u1 amd64
+ii libtext-charwidth-perl 0.04-7+b3 amd64
+ii libtext-iconv-perl 1.7-5+b2 amd64
+ii libtext-wrapi18n-perl 0.06-7 all
+ii libtinfo5:amd64 5.9+20140913-1+b1 amd64
+ii libtsan0:amd64 4.9.2-10 amd64
+ii libubsan0:amd64 4.9.2-10 amd64
+ii libudev1:amd64 215-17+deb8u1 amd64
+ii libunwind-dev 1.1-3.2 amd64
+ii libunwind8 1.1-3.2 amd64
+ii libusb-0.1-4:amd64 2:0.1.12-25 amd64
+ii libustr-1.0-1:amd64 1.0.4-3+b2 amd64
+ii libuuid-perl 0.05-1+b1 amd64
+ii libuuid1:amd64 2.25.2-6 amd64
+ii libwrap0:amd64 7.6.q-25 amd64
+ii libxml2:amd64 2.9.1+dfsg1-5 amd64
+ii libxtables10 1.4.21-2+b1 amd64
+ii linux-base 3.5 all
+ii linux-image-3.16.0-4-amd64 3.16.7-ckt11-1+deb8u2 amd64
+ii linux-image-amd64 3.16+63 amd64
+ii linux-libc-dev:amd64 3.16.7-ckt11-1+deb8u4 amd64
+ii locales 2.19-18 all
+ii login 1:4.2-3 amd64
+ii logrotate 3.8.7-1+b1 amd64
+ii lsb-base 4.1+Debian13+nmu1 all
+ii lsb-release 4.1+Debian13+nmu1 all
+ii make 4.0-8.1 amd64
+ii man-db 2.7.0.2-5 amd64
+ii manpages 3.74-1 all
+ii mawk 1.3.3-17 amd64
+ii mime-support 3.58 all
+ii mount 2.25.2-6 amd64
+ii multiarch-support 2.19-18 amd64
+ii nano 2.2.6-3 amd64
+ii ncurses-base 5.9+20140913-1 all
+ii ncurses-bin 5.9+20140913-1+b1 amd64
+ii net-tools 1.60-26+b1 amd64
+ii netbase 5.3 all
+ii netcat-traditional 1.10-41 amd64
+ii nfacct 1.0.1-1.1 amd64
+ii openssh-client 1:6.7p1-5 amd64
+ii openssh-server 1:6.7p1-5 amd64
+ii openssh-sftp-server 1:6.7p1-5 amd64
+ii openssl 1.0.1k-3+deb8u1 amd64
+ii passwd 1:4.2-3 amd64
+ii perl 5.20.2-3+deb8u1 amd64
+ii perl-base 5.20.2-3+deb8u1 amd64
+ii perl-modules 5.20.2-3+deb8u1 all
+ii procps 2:3.3.9-9 amd64
+ii python 2.7.9-1 amd64
+ii python-minimal 2.7.9-1 amd64
+ii python2.7 2.7.9-2 amd64
+ii python2.7-minimal 2.7.9-2 amd64
+ii readline-common 6.3-8 all
+ii rsyslog 8.4.2-1 amd64
+ii sed 4.2.2-4+b1 amd64
+ii sensible-utils 0.0.9 all
+ii startpar 0.59-3 amd64
+ii systemd 215-17+deb8u1 amd64
+ii systemd-sysv 215-17+deb8u1 amd64
+ii sysv-rc 2.88dsf-59 all
+ii sysvinit-utils 2.88dsf-59 amd64
+ii tar 1.27.1-2+b1 amd64
+ii tasksel 3.31+deb8u1 all
+ii tasksel-data 3.31+deb8u1 all
+ii tgz-g5k 1.0.10 all
+ii time 1.7-25 amd64
+ii traceroute 1:2.0.20-2+b1 amd64
+ii tzdata 2015d-0+deb8u1 all
+ii udev 215-17+deb8u1 amd64
+ii util-linux 2.25.2-6 amd64
+ii vim 2:7.4.488-7 amd64
+ii vim-common 2:7.4.488-7 amd64
+ii vim-runtime 2:7.4.488-7 all
+ii vim-tiny 2:7.4.488-7 amd64
+ii wget 1.16-1 amd64
+ii whiptail 0.52.17-1+b1 amd64
+ii zlib1g:amd64 1:1.2.8.dfsg-2+b1 amd64
+** Install SimGrid
+* Experiments
+** XP dup 
+*** XP dup NP=2 plain
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 109
+[0.000000] [mc_global/INFO] Visited states = 367
+[0.000000] [mc_global/INFO] Executed transitions = 328
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2210820  262427348       8932      37860    1055256
+-/+ buffers/cache:    1117704  263520464
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15474 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.82 user:1.46 sys:0.31 swapped:0 exitval:134 max:456504k
+*** XP dup NP=2 KSM
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 109
+[0.000000] [mc_global/INFO] Visited states = 367
+[0.000000] [mc_global/INFO] Executed transitions = 328
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2131752  262506416       8932      37884    1055560
+-/+ buffers/cache:    1038308  263599860
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15510 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.97 user:1.54 sys:0.38 swapped:0 exitval:134 max:458908k
+*** XP dup NP=2 page
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 109
+[0.000000] [mc_global/INFO] Visited states = 367
+[0.000000] [mc_global/INFO] Executed transitions = 328
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2069028  262569140       8932      37884    1055552
+-/+ buffers/cache:     975592  263662576
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15546 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.80 user:1.50 sys:0.26 swapped:0 exitval:134 max:322224k
+*** XP dup NP=2 page+soft
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 109
+[0.000000] [mc_global/INFO] Visited states = 367
+[0.000000] [mc_global/INFO] Executed transitions = 328
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2070064  262568104       8932      37884    1055552
+-/+ buffers/cache:     976628  263661540
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15582 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.96 user:1.54 sys:0.38 swapped:0 exitval:134 max:322068k
+** XP dup 2
+*** XP dup NP=3 plain
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 453
+[0.000000] [mc_global/INFO] Visited states = 2597
+[0.000000] [mc_global/INFO] Executed transitions = 2354
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2537828  262100340       8932      37900    1055564
+-/+ buffers/cache:    1444364  263193804
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15625 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:3.72 user:3.17 sys:0.50 swapped:0 exitval:134 max:788508k
+*** XP dup NP=3 KSM
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 453
+[0.000000] [mc_global/INFO] Visited states = 2597
+[0.000000] [mc_global/INFO] Executed transitions = 2354
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2222284  262415884       8932      37900    1055564
+-/+ buffers/cache:    1128820  263509348
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15667 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:4.42 user:3.70 sys:0.66 swapped:0 exitval:134 max:759692k
+*** XP dup NP=3 page
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 453
+[0.000000] [mc_global/INFO] Visited states = 2597
+[0.000000] [mc_global/INFO] Executed transitions = 2354
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2086396  262551772       8932      37916    1055564
+-/+ buffers/cache:     992916  263645252
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15709 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:3.89 user:3.55 sys:0.29 swapped:0 exitval:134 max:340788k
+*** XP dup NP=3 page+soft
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 453
+[0.000000] [mc_global/INFO] Visited states = 2597
+[0.000000] [mc_global/INFO] Executed transitions = 2354
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2086208  262551960       8932      37924    1055564
+-/+ buffers/cache:     992720  263645448
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15751 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:4.25 user:3.30 sys:0.90 swapped:0 exitval:134 max:341172k
+** XP dup 3
+*** XP dup NP=4 plain
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 2751
+[0.000000] [mc_global/INFO] Visited states = 22657
+[0.000000] [mc_global/INFO] Executed transitions = 21053
+             total       used       free     shared    buffers     cached
+Mem:     264638168    5052880  259585288       8932      37972    1055572
+-/+ buffers/cache:    3959336  260678832
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15801 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:56.21 user:54.27 sys:1.89 swapped:0 exitval:134 max:3316920k
+*** XP dup NP=4 KSM
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 2751
+[0.000000] [mc_global/INFO] Visited states = 22657
+[0.000000] [mc_global/INFO] Executed transitions = 21053
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2819848  261818320       8932      37992    1055572
+-/+ buffers/cache:    1726284  262911884
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15849 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:60.71 user:57.04 sys:3.46 swapped:0 exitval:134 max:3144612k
+*** XP dup NP=4 page
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 2751
+[0.000000] [mc_global/INFO] Visited states = 22657
+[0.000000] [mc_global/INFO] Executed transitions = 21053
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2395908  262242260       8932      38012    1055572
+-/+ buffers/cache:    1302324  263335844
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15897 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:64.23 user:63.61 sys:0.57 swapped:0 exitval:134 max:670876k
+*** XP dup NP=4 page+soft
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 2751
+[0.000000] [mc_global/INFO] Visited states = 22657
+[0.000000] [mc_global/INFO] Executed transitions = 21053
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2398488  262239680       8932      38032    1055572
+-/+ buffers/cache:    1304884  263333284
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15946 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:65.92 user:60.36 sys:5.50 swapped:0 exitval:134 max:674368k
+** XP groupcreate 4
+*** XP groupcreate NP=2 plain
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 13
+[0.000000] [mc_global/INFO] Visited states = 20
+[0.000000] [mc_global/INFO] Executed transitions = 16
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2063268  262574900       8932      38032    1055572
+-/+ buffers/cache:     969664  263668504
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 15983 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.43 user:1.16 sys:0.22 swapped:0 exitval:134 max:335056k
+*** XP groupcreate NP=2 KSM
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 13
+[0.000000] [mc_global/INFO] Visited states = 20
+[0.000000] [mc_global/INFO] Executed transitions = 16
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2062356  262575812       8932      38032    1055572
+-/+ buffers/cache:     968752  263669416
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16019 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.46 user:1.23 sys:0.19 swapped:0 exitval:134 max:335488k
+*** XP groupcreate NP=2 page
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 13
+[0.000000] [mc_global/INFO] Visited states = 20
+[0.000000] [mc_global/INFO] Executed transitions = 16
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2043336  262594832       8932      38032    1055564
+-/+ buffers/cache:     949740  263688428
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16055 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.43 user:1.16 sys:0.23 swapped:0 exitval:134 max:321676k
+*** XP groupcreate NP=2 page+soft
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 13
+[0.000000] [mc_global/INFO] Visited states = 20
+[0.000000] [mc_global/INFO] Executed transitions = 16
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2045000  262593168       8932      38048    1055556
+-/+ buffers/cache:     951396  263686772
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16091 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.45 user:1.15 sys:0.27 swapped:0 exitval:134 max:321572k
+** XP groupcreate 2
+*** XP groupcreate NP=3 plain
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 85
+[0.000000] [mc_global/INFO] Visited states = 280
+[0.000000] [mc_global/INFO] Executed transitions = 239
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2143680  262494488       8932      38048    1055564
+-/+ buffers/cache:    1050068  263588100
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16134 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.81 user:1.48 sys:0.29 swapped:0 exitval:134 max:411664k
+*** XP groupcreate NP=3 KSM
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 85
+[0.000000] [mc_global/INFO] Visited states = 280
+[0.000000] [mc_global/INFO] Executed transitions = 239
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2086124  262552044       8932      38048    1055572
+-/+ buffers/cache:     992504  263645664
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16176 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.96 user:1.57 sys:0.35 swapped:0 exitval:134 max:413084k
+*** XP groupcreate NP=3 page
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 85
+[0.000000] [mc_global/INFO] Visited states = 280
+[0.000000] [mc_global/INFO] Executed transitions = 239
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2051144  262587024       8932      38048    1055572
+-/+ buffers/cache:     957524  263680644
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16218 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.87 user:1.57 sys:0.26 swapped:0 exitval:134 max:321604k
+*** XP groupcreate NP=3 page+soft
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 85
+[0.000000] [mc_global/INFO] Visited states = 280
+[0.000000] [mc_global/INFO] Executed transitions = 239
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2051264  262586904       8932      38064    1055564
+-/+ buffers/cache:     957636  263680532
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16260 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.96 user:1.57 sys:0.35 swapped:0 exitval:134 max:321612k
+** XP groupcreate 3
+*** XP groupcreate NP=4 plain
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 1360
+[0.000000] [mc_global/INFO] Visited states = 7035
+[0.000000] [mc_global/INFO] Executed transitions = 6320
+             total       used       free     shared    buffers     cached
+Mem:     264638168    3760984  260877184       8932      38084    1055572
+-/+ buffers/cache:    2667328  261970840
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16309 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:47.46 user:46.22 sys:1.18 swapped:0 exitval:134 max:2031088k
+*** XP groupcreate NP=4 KSM
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 1360
+[0.000000] [mc_global/INFO] Visited states = 7035
+[0.000000] [mc_global/INFO] Executed transitions = 6320
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2233396  262404772       8932      38104    1055572
+-/+ buffers/cache:    1139720  263498448
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16357 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:49.31 user:47.43 sys:1.76 swapped:0 exitval:134 max:1944852k
+*** XP groupcreate NP=4 page
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 1360
+[0.000000] [mc_global/INFO] Visited states = 7035
+[0.000000] [mc_global/INFO] Executed transitions = 6320
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2188020  262450148       8932      38124    1055572
+-/+ buffers/cache:    1094324  263543844
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16405 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:53.32 user:52.90 sys:0.37 swapped:0 exitval:134 max:460368k
+*** XP groupcreate NP=4 page+soft
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3429: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_global/INFO] Expanded states = 1360
+[0.000000] [mc_global/INFO] Visited states = 7035
+[0.000000] [mc_global/INFO] Executed transitions = 6320
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2187292  262450876       8932      38144    1055572
+-/+ buffers/cache:    1093576  263544592
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16453 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:54.72 user:52.19 sys:2.48 swapped:0 exitval:134 max:461964k
+** XP sendrecv2 4
+*** XP sendrecv2 NP=2 plain
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 1990
+[0.000000] [mc_global/INFO] Visited states = 28432
+[0.000000] [mc_global/INFO] Executed transitions = 27775
+             total       used       free     shared    buffers     cached
+Mem:     264638168    5100708  259537460       8932      38160    1055572
+-/+ buffers/cache:    4006976  260631192
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16490 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:15.94 user:14.05 sys:1.86 swapped:0 exitval:134 max:3368960k
+*** XP sendrecv2 NP=2 KSM
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 1990
+[0.000000] [mc_global/INFO] Visited states = 28432
+[0.000000] [mc_global/INFO] Executed transitions = 27775
+             total       used       free     shared    buffers     cached
+Mem:     264638168    3001836  261636332       8932      38176    1055572
+-/+ buffers/cache:    1908088  262730080
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16526 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:19.01 user:16.19 sys:2.67 swapped:0 exitval:134 max:3168128k
+*** XP sendrecv2 NP=2 page
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 1990
+[0.000000] [mc_global/INFO] Visited states = 28432
+[0.000000] [mc_global/INFO] Executed transitions = 27775
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2247312  262390856       8932      38192    1055572
+-/+ buffers/cache:    1153548  263484620
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16562 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:17.31 user:16.80 sys:0.46 swapped:0 exitval:134 max:519464k
+*** XP sendrecv2 NP=2 page+soft
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 1990
+[0.000000] [mc_global/INFO] Visited states = 28432
+[0.000000] [mc_global/INFO] Executed transitions = 27775
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2248904  262389264       8932      38208    1055572
+-/+ buffers/cache:    1155124  263483044
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16598 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:18.50 user:15.57 sys:2.90 swapped:0 exitval:134 max:521980k
+** XP op_commutative 2
+*** XP op_commutative NP=3 plain
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 86
+[0.000000] [mc_global/INFO] Visited states = 281
+[0.000000] [mc_global/INFO] Executed transitions = 240
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2143952  262494216       8932      38208    1055564
+-/+ buffers/cache:    1050180  263587988
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16641 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.86 user:1.50 sys:0.31 swapped:0 exitval:134 max:414196k
+*** XP op_commutative NP=3 KSM
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 86
+[0.000000] [mc_global/INFO] Visited states = 281
+[0.000000] [mc_global/INFO] Executed transitions = 240
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2085132  262553036       8932      38208    1055572
+-/+ buffers/cache:     991352  263646816
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16683 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.97 user:1.61 sys:0.31 swapped:0 exitval:134 max:415712k
+*** XP op_commutative NP=3 page
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 86
+[0.000000] [mc_global/INFO] Visited states = 281
+[0.000000] [mc_global/INFO] Executed transitions = 240
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2051004  262587164       8932      38224    1055556
+-/+ buffers/cache:     957224  263680944
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16725 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.87 user:1.58 sys:0.25 swapped:0 exitval:134 max:322272k
+*** XP op_commutative NP=3 page+soft
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 86
+[0.000000] [mc_global/INFO] Visited states = 281
+[0.000000] [mc_global/INFO] Executed transitions = 240
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2050424  262587744       8932      38224    1055564
+-/+ buffers/cache:     956636  263681532
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16767 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:1.91 user:1.51 sys:0.35 swapped:0 exitval:134 max:322112k
+** XP op_commutative 3
+*** XP op_commutative NP=4 plain
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 1422
+[0.000000] [mc_global/INFO] Visited states = 7413
+[0.000000] [mc_global/INFO] Executed transitions = 6668
+             total       used       free     shared    buffers     cached
+Mem:     264638168    4070504  260567664       8932      38244    1055572
+-/+ buffers/cache:    2976688  261661480
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16816 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:49.47 user:48.10 sys:1.32 swapped:0 exitval:134 max:2339884k
+*** XP op_commutative NP=4 KSM
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 1422
+[0.000000] [mc_global/INFO] Visited states = 7413
+[0.000000] [mc_global/INFO] Executed transitions = 6668
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2238752  262399416       8932      38264    1055572
+-/+ buffers/cache:    1144916  263493252
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16864 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:51.01 user:49.12 sys:1.70 swapped:0 exitval:134 max:2031092k
+*** XP op_commutative NP=4 page
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 1422
+[0.000000] [mc_global/INFO] Visited states = 7413
+[0.000000] [mc_global/INFO] Executed transitions = 6668
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2189720  262448448       8932      38284    1055572
+-/+ buffers/cache:    1095864  263542304
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16912 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:54.79 user:54.36 sys:0.38 swapped:0 exitval:134 max:464988k
+*** XP op_commutative NP=4 page+soft
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 1422
+[0.000000] [mc_global/INFO] Visited states = 7413
+[0.000000] [mc_global/INFO] Executed transitions = 6668
+             total       used       free     shared    buffers     cached
+Mem:     264638168    2191304  262446864       8932      38564    1055572
+-/+ buffers/cache:    1097168  263541000
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 16960 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:56.35 user:53.61 sys:2.69 swapped:0 exitval:134 max:466604k
+** XP op_commutative 4
+*** XP op_commutative NP=5 plain
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 11471
+[0.000000] [mc_global/INFO] Visited states = 85892
+[0.000000] [mc_global/INFO] Executed transitions = 79397
+             total       used       free     shared    buffers     cached
+Mem:     264638168   15958248  248679920       8932      38644    1055680
+-/+ buffers/cache:   14863924  249774244
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 17019 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:2184.03 user:2176.25 sys:7.63 swapped:0 exitval:134 max:14207492k
+*** XP op_commutative NP=5 KSM
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 11471
+[0.000000] [mc_global/INFO] Visited states = 85892
+[0.000000] [mc_global/INFO] Executed transitions = 79397
+             total       used       free     shared    buffers     cached
+Mem:     264638168    3781404  260856764       8932      38664    1055680
+-/+ buffers/cache:    2687060  261951108
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 17081 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:2176.23 user:2163.32 sys:12.45 swapped:0 exitval:134 max:13404496k
+*** XP op_commutative NP=5 page
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 11471
+[0.000000] [mc_global/INFO] Visited states = 85892
+[0.000000] [mc_global/INFO] Executed transitions = 79397
+             total       used       free     shared    buffers     cached
+Mem:     264638168    3595060  261043108       8932      38704    1055680
+-/+ buffers/cache:    2500676  262137492
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 17135 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:2482.88 user:2480.75 sys:1.99 swapped:0 exitval:134 max:1867724k
+*** XP op_commutative NP=5 page+soft
+[0.000000] [mc_global/INFO] Check a safety property
+[0.000000] [mc_global/INFO] Get debug information ...
+[0.000000] [mc_global/INFO] Get debug information done !
+[0.000000] [mc_global/INFO] Expanded states = 11471
+[0.000000] [mc_global/INFO] Visited states = 85892
+[0.000000] [mc_global/INFO] Executed transitions = 79397
+             total       used       free     shared    buffers     cached
+Mem:     264638168    3610476  261027692       8932      38744    1055680
+-/+ buffers/cache:    2516052  262122116
+Swap:      3905532          0    3905532
+bin/smpirun: line 438: 17192 Aborted                 ${EXEC} ${TRACEOPTIONS} ${SIMOPTS} ${PLATFORMTMP} ${APPLICATIONTMP}
+Command exited with non-zero status 134
+clock:2514.31 user:2473.10 sys:41.06 swapped:0 exitval:134 max:1882108k
