@@ -16,8 +16,6 @@ Files:
 
 * snapshot.sh, script for (re)producing the experiment.
 
-  It is tangled from snapshot.org with emacs `org-babel-tangle`.
-
 * snapshot.pl, produce tabular data (TSV output) from the stdout of the script
 
 * results/*.tsv, results as TSV files
