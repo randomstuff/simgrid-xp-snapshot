@@ -105,9 +105,9 @@ setup_ksm() {
 }
 
 runxps() {
-  echo "** XP $(basename $1) $np"
   test="$1"
   np="$2"
+  echo "** XP $(basename $1) $np"
   shift
   shift
 
