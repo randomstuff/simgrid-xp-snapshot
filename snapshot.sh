@@ -61,7 +61,7 @@ else
   git clone https://github.com/mquinson/simgrid.git >&2
   cd simgrid
 fi
-git checkout origin/snapshot-xp >&2
+git checkout origin/snapshot-xp2 >&2
 cmake . \
   -Denable_compile_optimizations=ON -Denable_compile_warnings=ON -Denable_model-checking=ON \
   -Denable_smpi=ON -Denable_smpi_MPICH3_testsuite=ON -Denable_smpi_ISP_testsuite=OFF \
@@ -72,8 +72,8 @@ make -j"$(nproc || echo 1)" >&2
 
 echo "* Experiments"
 
-SIMGRID_MC_STATISTICS_COMMAND=free
-export SIMGRID_MC_STATISTICS_COMMAND
+SIMGRID_MC_SYSTEM_STATISTICS=free
+export SIMGRID_MC_SYSTEM_STATISTICS
 
 runxp() {
   test=$1
@@ -85,12 +85,13 @@ runxp() {
   echo "*** XP $(basename $test) NP=$np $name"
   /usr/bin/time -f "clock:%e user:%U sys:%S swapped:%W exitval:%x max:%Mk" \
     bin/smpirun \
+    -wrapper "bin/simgrid-mc" \
     -np "$np" \
     -hostfile ./teshsuite/smpi/hostfile_coll \
     -platform ./examples/platforms/small_platform_with_routers.xml \
     --cfg=contexts/factory:ucontext --cfg=contexts/stack_size:16 \
     --cfg=smpi/coll_selector:mpich --cfg=smpi/running_power:1e9 --cfg=smpi/send_is_detached_thres:0 \
-    --cfg=model-check:1 --cfg=model-check/max_depth:100000 \
+    --cfg=model-check/max_depth:100000 \
     --cfg=model-check/reduction:none --cfg=model-check/visited:1000000 \
     --cfg=model-check/sparse-checkpoint:no --cfg=model-check/ksm:1 \
     "$@" "$test" 2>&1 |
