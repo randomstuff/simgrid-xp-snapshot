@@ -93,7 +93,6 @@ runxp() {
     --cfg=smpi/coll_selector:mpich --cfg=smpi/running_power:1e9 --cfg=smpi/send_is_detached_thres:0 \
     --cfg=model-check/max_depth:100000 \
     --cfg=model-check/reduction:none --cfg=model-check/visited:1000000 \
-    --cfg=model-check/sparse-checkpoint:no --cfg=model-check/ksm:1 \
     "$@" "$test" 2>&1 |
     grep -v -e "^ No Errors" -e "xbt_cfg/INFO" -e surf_config/INFO ||
     true
