@@ -12,10 +12,11 @@ if [ "$1" = "--submit" ]; then
 fi
 
 if [ -n "$OAR_NODE_FILE" ]; then
+  ssh_opts="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
   kadeploy3 -e jessie-x64-min -k ~/.ssh/authorized_keys -f $OAR_NODE_FILE >&2 &&
   node="$(cat "$OAR_NODE_FILE" | uniq | head -n1)" &&
-  scp ./snapshot.sh "root@$node": >&2 &&
-  ssh root@$node chmod u+x ./snapshot.sh >&2 &&
+  scp $ssh_opts ./snapshot.sh "root@$node": >&2 &&
+  ssh $ssh_opts root@$node chmod u+x ./snapshot.sh >&2 &&
   exec ssh root@$node ./snapshot.sh ||
   exit 1
 fi
