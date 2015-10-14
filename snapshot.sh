@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#OAR -l nodes=1,walltime=3
+#OAR -l nodes=1,walltime=6
 #OAR -p cluster='graphite'
 #OAR -t deploy
 
@@ -119,6 +119,15 @@ runxps() {
   runxp "$test" "$np" "page+soft" --cfg=model-check/sparse-checkpoint:yes --cfg=model-check/ksm:1 --cfg=model-check/soft-dirty:1 "$@"
 }
 
+runxps teshsuite/smpi/mpich3-test/coll/bcasttest 3
+
+runxps teshsuite/smpi/mpich3-test/coll/bcastzerotype 5
+runxps teshsuite/smpi/mpich3-test/coll/bcastzerotype 6
+
+runxps teshsuite/smpi/mpich3-test/comm/commcreate1 4
+runxps teshsuite/smpi/mpich3-test/comm/commcreate1 5
+# runxps teshsuite/smpi/mpich3-test/comm/commcreate1 6
+
 runxps teshsuite/smpi/mpich3-test/comm/dup 2
 runxps teshsuite/smpi/mpich3-test/comm/dup 3
 runxps teshsuite/smpi/mpich3-test/comm/dup 4
@@ -126,8 +135,10 @@ runxps teshsuite/smpi/mpich3-test/comm/dup 4
 runxps teshsuite/smpi/mpich3-test/group/groupcreate 2
 runxps teshsuite/smpi/mpich3-test/group/groupcreate 3
 runxps teshsuite/smpi/mpich3-test/group/groupcreate 4
-# runxps teshsuite/smpi/mpich3-test/group/groupcreate 5
-# runxps teshsuite/smpi/mpich3-test/group/groupcreate 6
+runxps teshsuite/smpi/mpich3-test/group/groupcreate 5
+runxps teshsuite/smpi/mpich3-test/group/groupcreate 6
+
+runxps teshsuite/smpi/mpich3-test/f77/coll/inplacef 3
 
 runxps teshsuite/smpi/mpich3-test/pt2pt/sendrecv2 2
 
