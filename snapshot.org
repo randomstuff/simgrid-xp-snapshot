@@ -9,6 +9,15 @@
 #+PROPERTY: header-args:sh  :tangle snapshot.sh
 
 * Motivation and problem statement
+
+- model checking
+- whole application sampling
+- model-checking
+
+- RR
+- CRIU
+- live migration
+
 * Experiments
 ** Data Provenance
 ** Data Analysis
