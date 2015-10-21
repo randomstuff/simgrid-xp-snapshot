@@ -1,18 +1,80 @@
-+TITLE:
-#+AUTHOR:
++TITLE: High frequency applicative snapshots toward the formal verification of real distributed applications
+#+AUTHOR: Gabriel Corona and Martin Quinson
 #+EMAIL:
 #+TAGS: noexport(n)
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
 #+STARTUP: hideblocks
-#+PROPERTY: header-args:sh  :dir /root@griffon-92.nancy.grid5000.fr:
-#+PROPERTY: header-args:sh  :tangle snapshot.sh
 
+* Abstract
+  The formal dynamic verification of real applications constitutes a
+  maybe unexpected use case for the snapshoting of applications.  This
+  usage induces a very specific workload to the memory snapshoting
+  subsystems: a typical verification process can take thousands of
+  snapshots per second, which must all be kept for future
+  reference. Snapshoting speed and memory compaction between similar
+  snapshots are thus particularly important in this use case.
+
+  In this paper, we discuss several possible implementation approaches
+  to this problem. We find that no existing solution clearly outperform the
+  others in all cases, and compare these solutions for differing
+  usage contexts.
+
+* Introduction
+(*Detecting execution loops is fundamental to the
+  verification of liveness properties. It can also be used to mitigate
+  the system state explosion problem by not re-exploring already
+  explored states.*) 
+- Snapshoting application is a known problem
+- It can be used in many contexts. Historically, it was mainly used in
+  the context of fault tolerence, or live migration. 
+- It is also important in the context of dynamic verification, which
+  comes down to exhaustive application testing. In this case, you have 
 * Motivation and problem statement
+- snapshoter une appli, bcp de gens savent faire.
+- La première étape est d'avoir un système capable de sauvegarder (et
+  restorer) la mémoire du processus étudié.
+  - On peut soit mettre ce service dans une bibliothèque attachée au
+    processus étudiée, soit faire un processus séparé. Nous avons
+    testé les deux approches, dans cette ordre.
+  - L'idée de bibliothèque semble plus simple, car elle évite de
+    devoir aller lire la mémoire d'un processus depuis un autre
+    processus. C'est la solution retenue dans notre première
+    implémentation. Un problème pratique est alors de séparer l'état
+    de l'espion de celui de l'espionné. Nous avons réutilisé mmalloc
+    pour cela, implémenté pour permettre à gdb de séparer son tas du
+    processus débuggué.
+  - Mais en pratique, cette solution est complexe à maintenir, et nous
+    avons réimplémenté une solution plaçant espion et espionnés dans des
+    processus séparés. Remarquons que les versions récentes de gdb
+    n'utilisent plus mmalloc, mais placent le debuggeur dans un
+    processus à part.
+- Pour assurer que le processus d'exploration formel reste /sound/, il
+  est indispensable de conserver tous les états rencontrés. Sinon, on
+  risque de ne pas détecter des problèmes pourtant présents. La
+  consommation mémoire consitue donc un problème important. Il faut
+  mettre en place une sauvegarde incrémentale en ne sauvegardant que
+  les parties de la mémoire qui ont changé entre les snaps.
+  - Une solution purement applicative consistant à tirer partie de
+    l'anatomie des données dans l'application vérifiée n'est
+    clairement pas générique. Pareil pour une solution basée sur un
+    malloc modifié pour détecter les fragments qui changent.
+  - Une solution système semble préférable. Pour cela, la granularité
+    des pages de mémoire est pas une mauvaise idée.
+  - Si l'on reste en espace utilisateur, on va devoir faire un MMU
+    applicatif, ce qui est possible mais  pas forcément agréable.
+  - Le défi principal est donc de détecter à chaque sauvegarde les
+    pages de l'application qui ont changé.
+- On a donc une matrice des solutions possibles:
+  - Sur une dimension, in-process vs. split process.
+  - Sur l'autre dimension, comment détecter que les pages
+    changent. KSM, COW kernel, COW user-space (avec mprotect ou avec
+    userfaultfd), Dirty soft+hash, hash de tout.
 * Experiments
 ** Data Provenance
 ** Data Analysis
-
+* State of the Art
+- Live migration: https://criu.org/ checkpoint/restore in usermode.
 * Conclusion
 
 * Emacs config
