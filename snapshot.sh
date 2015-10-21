@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#OAR -l nodes=1,walltime=3
+#OAR -l nodes=1,walltime=6
 #OAR -p cluster='graphite'
 #OAR -t deploy
 
@@ -12,10 +12,11 @@ if [ "$1" = "--submit" ]; then
 fi
 
 if [ -n "$OAR_NODE_FILE" ]; then
+  ssh_opts="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
   kadeploy3 -e jessie-x64-min -k ~/.ssh/authorized_keys -f $OAR_NODE_FILE >&2 &&
   node="$(cat "$OAR_NODE_FILE" | uniq | head -n1)" &&
-  scp ./snapshot.sh "root@$node": >&2 &&
-  ssh root@$node chmod u+x ./snapshot.sh >&2 &&
+  scp $ssh_opts ./snapshot.sh "root@$node": >&2 &&
+  ssh $ssh_opts root@$node chmod u+x ./snapshot.sh >&2 &&
   exec ssh root@$node ./snapshot.sh ||
   exit 1
 fi
@@ -118,6 +119,15 @@ runxps() {
   runxp "$test" "$np" "page+soft" --cfg=model-check/sparse-checkpoint:yes --cfg=model-check/ksm:1 --cfg=model-check/soft-dirty:1 "$@"
 }
 
+runxps teshsuite/smpi/mpich3-test/coll/bcasttest 3
+
+runxps teshsuite/smpi/mpich3-test/coll/bcastzerotype 5
+runxps teshsuite/smpi/mpich3-test/coll/bcastzerotype 6
+
+runxps teshsuite/smpi/mpich3-test/comm/commcreate1 4
+runxps teshsuite/smpi/mpich3-test/comm/commcreate1 5
+# runxps teshsuite/smpi/mpich3-test/comm/commcreate1 6
+
 runxps teshsuite/smpi/mpich3-test/comm/dup 2
 runxps teshsuite/smpi/mpich3-test/comm/dup 3
 runxps teshsuite/smpi/mpich3-test/comm/dup 4
@@ -125,8 +135,10 @@ runxps teshsuite/smpi/mpich3-test/comm/dup 4
 runxps teshsuite/smpi/mpich3-test/group/groupcreate 2
 runxps teshsuite/smpi/mpich3-test/group/groupcreate 3
 runxps teshsuite/smpi/mpich3-test/group/groupcreate 4
-# runxps teshsuite/smpi/mpich3-test/group/groupcreate 5
-# runxps teshsuite/smpi/mpich3-test/group/groupcreate 6
+runxps teshsuite/smpi/mpich3-test/group/groupcreate 5
+runxps teshsuite/smpi/mpich3-test/group/groupcreate 6
+
+runxps teshsuite/smpi/mpich3-test/f77/coll/inplacef 3
 
 runxps teshsuite/smpi/mpich3-test/pt2pt/sendrecv2 2
 

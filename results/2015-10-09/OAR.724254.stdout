@@ -1,0 +1,1256 @@
+* Prepare the environment
+** Install packages
+** Machine information
+Fri Oct  9 10:54:40 CEST 2015
+Linux parapide-5.rennes.grid5000.fr 3.16.0-4-amd64 #1 SMP Debian 3.16.7-ckt11-1+deb8u2 (2015-07-17) x86_64 GNU/Linux
+Distributor ID:	Debian
+Description:	Debian GNU/Linux 8.1 (jessie)
+Release:	8.1
+Codename:	jessie
+model name	: Intel(R) Xeon(R) CPU           X5570  @ 2.93GHz
+model name	: Intel(R) Xeon(R) CPU           X5570  @ 2.93GHz
+model name	: Intel(R) Xeon(R) CPU           X5570  @ 2.93GHz
+model name	: Intel(R) Xeon(R) CPU           X5570  @ 2.93GHz
+model name	: Intel(R) Xeon(R) CPU           X5570  @ 2.93GHz
+model name	: Intel(R) Xeon(R) CPU           X5570  @ 2.93GHz
+model name	: Intel(R) Xeon(R) CPU           X5570  @ 2.93GHz
+model name	: Intel(R) Xeon(R) CPU           X5570  @ 2.93GHz
+MemTotal:       24735240 kB
+MemFree:        23764028 kB
+MemAvailable:   24276580 kB
+cc (Debian 4.9.2-10) 4.9.2
+c++ (Debian 4.9.2-10) 4.9.2
+git version 2.1.4
+GNU Make 4.0
+cmake version 3.0.2
+             total       used       free     shared    buffers     cached
+Mem:      24735240     970400   23764840       8816      31776     680564
+-/+ buffers/cache:     258060   24477180
+Swap:      3905532          0    3905532
+** Package list
+ii acl 2.2.52-2 amd64
+ii adduser 3.113+nmu3 all
+ii apt 1.0.9.8 amd64
+ii apt-utils 1.0.9.8 amd64
+ii base-files 8+deb8u1 amd64
+ii base-passwd 3.5.37 amd64
+ii bash 4.3-11+b1 amd64
+ii binutils 2.25-5 amd64
+ii bsdmainutils 9.0.6 amd64
+ii bsdutils 1:2.25.2-6 amd64
+ii ca-certificates 20141019 all
+ii cmake 3.0.2-1 amd64
+ii cmake-curses-gui 3.0.2-1 amd64
+ii cmake-data 3.0.2-1 all
+ii coreutils 8.23-4 amd64
+ii cpio 2.11+dfsg-4.1 amd64
+ii cpp 4:4.9.2-2 amd64
+ii cpp-4.9 4.9.2-10 amd64
+ii cron 3.0pl1-127 amd64
+ii dash 0.5.7-4+b1 amd64
+ii debconf 1.5.56 all
+ii debconf-i18n 1.5.56 all
+ii debian-archive-keyring 2014.3 all
+ii debian-keyring 2015.04.10 all
+ii debianutils 4.4+b1 amd64
+ii diffutils 1:3.3-1+b1 amd64
+ii dmidecode 2.12-3 amd64
+ii dmsetup 2:1.02.90-2.2 amd64
+ii dpkg 1.17.25 amd64
+ii e2fslibs:amd64 1.42.12-1.1 amd64
+ii e2fsprogs 1.42.12-1.1 amd64
+ii findutils 4.4.2-9+b1 amd64
+ii firmware-bnx2 0.43 all
+ii firmware-bnx2x 0.43 all
+ii g++ 4:4.9.2-2 amd64
+ii g++-4.9 4.9.2-10 amd64
+ii gcc 4:4.9.2-2 amd64
+ii gcc-4.8-base:amd64 4.8.4-1 amd64
+ii gcc-4.9 4.9.2-10 amd64
+ii gcc-4.9-base:amd64 4.9.2-10 amd64
+ii git 1:2.1.4-2.1 amd64
+ii git-man 1:2.1.4-2.1 all
+ii gnupg 1.4.18-7 amd64
+ii gpgv 1.4.18-7 amd64
+ii grep 2.20-4.1 amd64
+ii groff-base 1.22.2-8 amd64
+ii gzip 1.6-4 amd64
+ii hostname 3.15 amd64
+ii ifupdown 0.7.53.1 amd64
+ii init 1.22 amd64
+ii init-system-helpers 1.22 all
+ii initramfs-tools 0.120 all
+ii initscripts 2.88dsf-59 amd64
+ii insserv 1.14.0-5 amd64
+ii iproute2 3.16.0-2 amd64
+ii iptables 1.4.21-2+b1 amd64
+ii iputils-ping 3:20121221-5+b2 amd64
+ii isc-dhcp-client 4.3.1-6 amd64
+ii isc-dhcp-common 4.3.1-6 amd64
+ii klibc-utils 2.0.4-2 amd64
+ii kmod 18-3 amd64
+ii less 458-3 amd64
+ii libacl1:amd64 2.2.52-2 amd64
+ii libapt-inst1.5:amd64 1.0.9.8 amd64
+ii libapt-pkg4.12:amd64 1.0.9.8 amd64
+ii libarchive13:amd64 3.1.2-11 amd64
+ii libasan0:amd64 4.8.4-1 amd64
+ii libasan1:amd64 4.9.2-10 amd64
+ii libatomic1:amd64 4.9.2-10 amd64
+ii libattr1:amd64 1:2.4.47-2 amd64
+ii libaudit-common 1:2.4-1 all
+ii libaudit1:amd64 1:2.4-1+b1 amd64
+ii libblkid1:amd64 2.25.2-6 amd64
+ii libboost-context-dev:amd64 1.55.0.2 amd64
+ii libboost-context1.55-dev:amd64 1.55.0+dfsg-3 amd64
+ii libboost-context1.55.0:amd64 1.55.0+dfsg-3 amd64
+ii libboost-dev:amd64 1.55.0.2 amd64
+ii libboost-iostreams1.55.0:amd64 1.55.0+dfsg-3 amd64
+ii libboost1.55-dev:amd64 1.55.0+dfsg-3 amd64
+ii libbsd0:amd64 0.7.0-2 amd64
+ii libbz2-1.0:amd64 1.0.6-7+b3 amd64
+ii libc-bin 2.19-18 amd64
+ii libc-dev-bin 2.19-18+deb8u1 amd64
+ii libc6:amd64 2.19-18+deb8u1 amd64
+ii libc6-dev:amd64 2.19-18+deb8u1 amd64
+ii libcap2:amd64 1:2.24-8 amd64
+ii libcap2-bin 1:2.24-8 amd64
+ii libcilkrts5:amd64 4.9.2-10 amd64
+ii libcloog-isl4:amd64 0.18.2-1+b2 amd64
+ii libcomerr2:amd64 1.42.12-1.1 amd64
+ii libcryptsetup4:amd64 2:1.6.6-5 amd64
+ii libcurl3:amd64 7.38.0-4+deb8u2 amd64
+ii libcurl3-gnutls:amd64 7.38.0-4+deb8u2 amd64
+ii libdb5.3:amd64 5.3.28-9 amd64
+ii libdebconfclient0:amd64 0.192 amd64
+ii libdevmapper1.02.1:amd64 2:1.02.90-2.2 amd64
+ii libdns-export100 1:9.9.5.dfsg-9+deb8u1 amd64
+ii libdw-dev:amd64 0.159-4.2 amd64
+ii libdw1:amd64 0.159-4.2 amd64
+ii libedit2:amd64 3.1-20140620-2 amd64
+ii libelf-dev:amd64 0.159-4.2 amd64
+ii libelf1:amd64 0.159-4.2 amd64
+ii liberror-perl 0.17-1.1 all
+ii libestr0 0.1.9-1.1 amd64
+ii libexpat1:amd64 2.1.0-6+deb8u1 amd64
+ii libffi6:amd64 3.1-2+b2 amd64
+ii libgcc-4.8-dev:amd64 4.8.4-1 amd64
+ii libgcc-4.9-dev:amd64 4.9.2-10 amd64
+ii libgcc1:amd64 1:4.9.2-10 amd64
+ii libgcrypt20:amd64 1.6.3-2 amd64
+ii libgdbm3:amd64 1.8.3-13.1 amd64
+ii libgmp10:amd64 2:6.0.0+dfsg-6 amd64
+ii libgnutls-deb0-28:amd64 3.3.8-6+deb8u1 amd64
+ii libgnutls-openssl27:amd64 3.3.8-6+deb8u1 amd64
+ii libgomp1:amd64 4.9.2-10 amd64
+ii libgpg-error0:amd64 1.17-3 amd64
+ii libgpm2:amd64 1.20.4-6.1+b2 amd64
+ii libgssapi-krb5-2:amd64 1.12.1+dfsg-19 amd64
+ii libhogweed2:amd64 2.7.1-5 amd64
+ii libicu52:amd64 52.1-8 amd64
+ii libidn11:amd64 1.29-1+b2 amd64
+ii libirs-export91 1:9.9.5.dfsg-9+deb8u1 amd64
+ii libisc-export95 1:9.9.5.dfsg-9+deb8u1 amd64
+ii libisccfg-export90 1:9.9.5.dfsg-9+deb8u1 amd64
+ii libisl10:amd64 0.12.2-2 amd64
+ii libitm1:amd64 4.9.2-10 amd64
+ii libjson-c2:amd64 0.11-4 amd64
+ii libk5crypto3:amd64 1.12.1+dfsg-19 amd64
+ii libkeyutils1:amd64 1.5.9-5+b1 amd64
+ii libklibc 2.0.4-2 amd64
+ii libkmod2:amd64 18-3 amd64
+ii libkrb5-3:amd64 1.12.1+dfsg-19 amd64
+ii libkrb5support0:amd64 1.12.1+dfsg-19 amd64
+ii libldap-2.4-2:amd64 2.4.40+dfsg-1+deb8u1 amd64
+ii liblocale-gettext-perl 1.05-8+b1 amd64
+ii liblogging-stdlog0:amd64 1.0.4-1 amd64
+ii liblognorm1:amd64 1.0.1-3 amd64
+ii liblsan0:amd64 4.9.2-10 amd64
+ii liblzma5:amd64 5.1.1alpha+20120614-2+b3 amd64
+ii liblzo2-2:amd64 2.08-1.2 amd64
+ii libmnl0:amd64 1.0.3-5 amd64
+ii libmount1:amd64 2.25.2-6 amd64
+ii libmpc3:amd64 1.0.2-1 amd64
+ii libmpfr4:amd64 3.1.2-2 amd64
+ii libncurses5:amd64 5.9+20140913-1+b1 amd64
+ii libncursesw5:amd64 5.9+20140913-1+b1 amd64
+ii libnetfilter-acct1:amd64 1.0.2-1.1 amd64
+ii libnettle4:amd64 2.7.1-5 amd64
+ii libnewt0.52:amd64 0.52.17-1+b1 amd64
+ii libnfnetlink0:amd64 1.0.1-3 amd64
+ii libp11-kit0:amd64 0.20.7-1 amd64
+ii libpam-modules:amd64 1.1.8-3.1 amd64
+ii libpam-modules-bin 1.1.8-3.1 amd64
+ii libpam-runtime 1.1.8-3.1 all
+ii libpam0g:amd64 1.1.8-3.1 amd64
+ii libpcre3:amd64 2:8.35-3.3 amd64
+ii libpipeline1:amd64 1.4.0-1 amd64
+ii libpopt0:amd64 1.16-10 amd64
+ii libprocps3:amd64 2:3.3.9-9 amd64
+ii libpsl0:amd64 0.5.1-1 amd64
+ii libpython-stdlib:amd64 2.7.9-1 amd64
+ii libpython2.7-minimal:amd64 2.7.9-2 amd64
+ii libpython2.7-stdlib:amd64 2.7.9-2 amd64
+ii libquadmath0:amd64 4.9.2-10 amd64
+ii libreadline6:amd64 6.3-8+b3 amd64
+ii librtmp1:amd64 2.4+20150115.gita107cef-1 amd64
+ii libsasl2-2:amd64 2.1.26.dfsg1-13+deb8u1 amd64
+ii libsasl2-modules-db:amd64 2.1.26.dfsg1-13+deb8u1 amd64
+ii libselinux1:amd64 2.3-2 amd64
+ii libsemanage-common 2.3-1 all
+ii libsemanage1:amd64 2.3-1+b1 amd64
+ii libsepol1:amd64 2.3-2 amd64
+ii libsigc++-2.0-0c2a:amd64 2.4.0-1 amd64
+ii libslang2:amd64 2.3.0-2 amd64
+ii libsmartcols1:amd64 2.25.2-6 amd64
+ii libsqlite3-0:amd64 3.8.7.1-1+deb8u1 amd64
+ii libss2:amd64 1.42.12-1.1 amd64
+ii libssh2-1:amd64 1.4.3-4.1 amd64
+ii libssl1.0.0:amd64 1.0.1k-3+deb8u1 amd64
+ii libstdc++-4.8-dev:amd64 4.8.4-1 amd64
+ii libstdc++-4.9-dev:amd64 4.9.2-10 amd64
+ii libstdc++6:amd64 4.9.2-10 amd64
+ii libsystemd0:amd64 215-17+deb8u1 amd64
+ii libtasn1-6:amd64 4.2-3+deb8u1 amd64
+ii libtext-charwidth-perl 0.04-7+b3 amd64
+ii libtext-iconv-perl 1.7-5+b2 amd64
+ii libtext-wrapi18n-perl 0.06-7 all
+ii libtinfo5:amd64 5.9+20140913-1+b1 amd64
+ii libtsan0:amd64 4.9.2-10 amd64
+ii libubsan0:amd64 4.9.2-10 amd64
+ii libudev1:amd64 215-17+deb8u1 amd64
+ii libunwind-dev 1.1-3.2 amd64
+ii libunwind8 1.1-3.2 amd64
+ii libusb-0.1-4:amd64 2:0.1.12-25 amd64
+ii libustr-1.0-1:amd64 1.0.4-3+b2 amd64
+ii libuuid-perl 0.05-1+b1 amd64
+ii libuuid1:amd64 2.25.2-6 amd64
+ii libwrap0:amd64 7.6.q-25 amd64
+ii libxml2:amd64 2.9.1+dfsg1-5 amd64
+ii libxtables10 1.4.21-2+b1 amd64
+ii linux-base 3.5 all
+ii linux-image-3.16.0-4-amd64 3.16.7-ckt11-1+deb8u2 amd64
+ii linux-image-amd64 3.16+63 amd64
+ii linux-libc-dev:amd64 3.16.7-ckt11-1+deb8u4 amd64
+ii locales 2.19-18 all
+ii login 1:4.2-3 amd64
+ii logrotate 3.8.7-1+b1 amd64
+ii lsb-base 4.1+Debian13+nmu1 all
+ii lsb-release 4.1+Debian13+nmu1 all
+ii make 4.0-8.1 amd64
+ii man-db 2.7.0.2-5 amd64
+ii manpages 3.74-1 all
+ii mawk 1.3.3-17 amd64
+ii mime-support 3.58 all
+ii mount 2.25.2-6 amd64
+ii multiarch-support 2.19-18 amd64
+ii nano 2.2.6-3 amd64
+ii ncurses-base 5.9+20140913-1 all
+ii ncurses-bin 5.9+20140913-1+b1 amd64
+ii net-tools 1.60-26+b1 amd64
+ii netbase 5.3 all
+ii netcat-traditional 1.10-41 amd64
+ii nfacct 1.0.1-1.1 amd64
+ii openssh-client 1:6.7p1-5 amd64
+ii openssh-server 1:6.7p1-5 amd64
+ii openssh-sftp-server 1:6.7p1-5 amd64
+ii openssl 1.0.1k-3+deb8u1 amd64
+ii passwd 1:4.2-3 amd64
+ii perl 5.20.2-3+deb8u1 amd64
+ii perl-base 5.20.2-3+deb8u1 amd64
+ii perl-modules 5.20.2-3+deb8u1 all
+ii procps 2:3.3.9-9 amd64
+ii python 2.7.9-1 amd64
+ii python-minimal 2.7.9-1 amd64
+ii python2.7 2.7.9-2 amd64
+ii python2.7-minimal 2.7.9-2 amd64
+ii readline-common 6.3-8 all
+ii rsyslog 8.4.2-1 amd64
+ii sed 4.2.2-4+b1 amd64
+ii sensible-utils 0.0.9 all
+ii startpar 0.59-3 amd64
+ii systemd 215-17+deb8u1 amd64
+ii systemd-sysv 215-17+deb8u1 amd64
+ii sysv-rc 2.88dsf-59 all
+ii sysvinit-utils 2.88dsf-59 amd64
+ii tar 1.27.1-2+b1 amd64
+ii tasksel 3.31+deb8u1 all
+ii tasksel-data 3.31+deb8u1 all
+ii tgz-g5k 1.0.10 all
+ii time 1.7-25 amd64
+ii traceroute 1:2.0.20-2+b1 amd64
+ii tzdata 2015d-0+deb8u1 all
+ii udev 215-17+deb8u1 amd64
+ii util-linux 2.25.2-6 amd64
+ii vim 2:7.4.488-7 amd64
+ii vim-common 2:7.4.488-7 amd64
+ii vim-runtime 2:7.4.488-7 all
+ii vim-tiny 2:7.4.488-7 amd64
+ii wget 1.16-1 amd64
+ii whiptail 0.52.17-1+b1 amd64
+ii zlib1g:amd64 1:1.2.8.dfsg-2+b1 amd64
+** Install SimGrid
+Git commit: 5e01caaefb24602d055517fbb3413dc61e2245ae
+* Experiments
+** XP dup 2
+*** XP dup NP=2 plain
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 117
+[0.000000] [mc_global/INFO] Visited states = 158
+[0.000000] [mc_global/INFO] Executed transitions = 116
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1715540   23019700       8820      38292    1133732
+-/+ buffers/cache:     543516   24191724
+Swap:      3905532          0    3905532
+clock:1.77 user:1.28 sys:0.41 swapped:0 exitval:0 max:260096k
+*** XP dup NP=2 KSM
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 117
+[0.000000] [mc_global/INFO] Visited states = 158
+[0.000000] [mc_global/INFO] Executed transitions = 116
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1589496   23145744       8820      38304    1133640
+-/+ buffers/cache:     417552   24317688
+Swap:      3905532          0    3905532
+clock:1.80 user:1.30 sys:0.46 swapped:0 exitval:0 max:259988k
+*** XP dup NP=2 page
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 117
+[0.000000] [mc_global/INFO] Visited states = 158
+[0.000000] [mc_global/INFO] Executed transitions = 116
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1562856   23172384       8820      38312    1133640
+-/+ buffers/cache:     390904   24344336
+Swap:      3905532          0    3905532
+clock:1.83 user:1.38 sys:0.32 swapped:0 exitval:0 max:119196k
+*** XP dup NP=2 page+soft
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 117
+[0.000000] [mc_global/INFO] Visited states = 158
+[0.000000] [mc_global/INFO] Executed transitions = 116
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1562296   23172944       8820      38312    1133640
+-/+ buffers/cache:     390344   24344896
+Swap:      3905532          0    3905532
+clock:1.68 user:1.33 sys:0.31 swapped:0 exitval:0 max:119144k
+** XP dup 3
+*** XP dup NP=3 plain
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 764
+[0.000000] [mc_global/INFO] Visited states = 1154
+[0.000000] [mc_global/INFO] Executed transitions = 763
+             total       used       free     shared    buffers     cached
+Mem:      24735240    2325116   22410124       8820      38340    1133648
+-/+ buffers/cache:    1153128   23582112
+Swap:      3905532          0    3905532
+clock:10.82 user:7.65 sys:3.10 swapped:0 exitval:0 max:874904k
+*** XP dup NP=3 KSM
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 764
+[0.000000] [mc_global/INFO] Visited states = 1154
+[0.000000] [mc_global/INFO] Executed transitions = 763
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1633896   23101344       8820      38376    1133656
+-/+ buffers/cache:     461864   24273376
+Swap:      3905532          0    3905532
+clock:11.47 user:7.90 sys:3.48 swapped:0 exitval:0 max:875912k
+*** XP dup NP=3 page
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 764
+[0.000000] [mc_global/INFO] Visited states = 1154
+[0.000000] [mc_global/INFO] Executed transitions = 763
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1583184   23152056       8820      38400    1133656
+-/+ buffers/cache:     411128   24324112
+Swap:      3905532          0    3905532
+clock:11.08 user:8.33 sys:2.69 swapped:0 exitval:0 max:133172k
+*** XP dup NP=3 page+soft
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 764
+[0.000000] [mc_global/INFO] Visited states = 1154
+[0.000000] [mc_global/INFO] Executed transitions = 763
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1578812   23156428       8820      38416    1133656
+-/+ buffers/cache:     406740   24328500
+Swap:      3905532          0    3905532
+clock:10.44 user:7.81 sys:2.56 swapped:0 exitval:0 max:133440k
+** XP dup 4
+*** XP dup NP=4 plain
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 4117
+[0.000000] [mc_global/INFO] Visited states = 6615
+[0.000000] [mc_global/INFO] Executed transitions = 4116
+             total       used       free     shared    buffers     cached
+Mem:      24735240    4939552   19795688       8820      38436    1133656
+-/+ buffers/cache:    3767460   20967780
+Swap:      3905532          0    3905532
+clock:70.83 user:50.08 sys:20.51 swapped:0 exitval:0 max:3492404k
+*** XP dup NP=4 KSM
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 4117
+[0.000000] [mc_global/INFO] Visited states = 6615
+[0.000000] [mc_global/INFO] Executed transitions = 4116
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1904000   22831240       8820      38456    1133656
+-/+ buffers/cache:     731888   24003352
+Swap:      3905532          0    3905532
+clock:75.37 user:52.99 sys:22.01 swapped:0 exitval:0 max:3494596k
+*** XP dup NP=4 page
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 4117
+[0.000000] [mc_global/INFO] Visited states = 6615
+[0.000000] [mc_global/INFO] Executed transitions = 4116
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1709448   23025792       8820      38476    1133656
+-/+ buffers/cache:     537316   24197924
+Swap:      3905532          0    3905532
+clock:73.24 user:54.11 sys:18.94 swapped:0 exitval:0 max:268328k
+*** XP dup NP=4 page+soft
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 4117
+[0.000000] [mc_global/INFO] Visited states = 6615
+[0.000000] [mc_global/INFO] Executed transitions = 4116
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1709472   23025768       8820      38496    1133656
+-/+ buffers/cache:     537320   24197920
+Swap:      3905532          0    3905532
+clock:69.61 user:51.50 sys:17.90 swapped:0 exitval:0 max:268216k
+** XP groupcreate 2
+*** XP groupcreate NP=2 plain
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 13
+[0.000000] [mc_global/INFO] Visited states = 16
+[0.000000] [mc_global/INFO] Executed transitions = 12
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1571756   23163484       8820      38496    1133656
+-/+ buffers/cache:     399604   24335636
+Swap:      3905532          0    3905532
+clock:0.81 user:0.70 sys:0.08 swapped:0 exitval:0 max:127996k
+*** XP groupcreate NP=2 KSM
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 13
+[0.000000] [mc_global/INFO] Visited states = 16
+[0.000000] [mc_global/INFO] Executed transitions = 12
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1571080   23164160       8820      38496    1133656
+-/+ buffers/cache:     398928   24336312
+Swap:      3905532          0    3905532
+clock:0.80 user:0.71 sys:0.07 swapped:0 exitval:0 max:128692k
+*** XP groupcreate NP=2 page
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 13
+[0.000000] [mc_global/INFO] Visited states = 16
+[0.000000] [mc_global/INFO] Executed transitions = 12
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1554692   23180548       8820      38496    1133660
+-/+ buffers/cache:     382536   24352704
+Swap:      3905532          0    3905532
+clock:0.80 user:0.71 sys:0.06 swapped:0 exitval:0 max:119156k
+*** XP groupcreate NP=2 page+soft
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 13
+[0.000000] [mc_global/INFO] Visited states = 16
+[0.000000] [mc_global/INFO] Executed transitions = 12
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1554684   23180556       8820      38496    1133664
+-/+ buffers/cache:     382524   24352716
+Swap:      3905532          0    3905532
+clock:0.79 user:0.72 sys:0.05 swapped:0 exitval:0 max:119096k
+** XP groupcreate 3
+*** XP groupcreate NP=3 plain
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 111
+[0.000000] [mc_global/INFO] Visited states = 158
+[0.000000] [mc_global/INFO] Executed transitions = 110
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1687620   23047620       8820      38496    1133656
+-/+ buffers/cache:     515468   24219772
+Swap:      3905532          0    3905532
+clock:1.95 user:1.48 sys:0.43 swapped:0 exitval:0 max:239444k
+*** XP groupcreate NP=3 KSM
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 111
+[0.000000] [mc_global/INFO] Visited states = 158
+[0.000000] [mc_global/INFO] Executed transitions = 110
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1575468   23159772       8820      38512    1133656
+-/+ buffers/cache:     403300   24331940
+Swap:      3905532          0    3905532
+clock:2.03 user:1.56 sys:0.43 swapped:0 exitval:0 max:239596k
+*** XP groupcreate NP=3 page
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 111
+[0.000000] [mc_global/INFO] Visited states = 158
+[0.000000] [mc_global/INFO] Executed transitions = 110
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1557188   23178052       8820      38512    1133656
+-/+ buffers/cache:     385020   24350220
+Swap:      3905532          0    3905532
+clock:1.98 user:1.61 sys:0.33 swapped:0 exitval:0 max:119068k
+*** XP groupcreate NP=3 page+soft
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 111
+[0.000000] [mc_global/INFO] Visited states = 158
+[0.000000] [mc_global/INFO] Executed transitions = 110
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1556568   23178672       8820      38528    1133648
+-/+ buffers/cache:     384392   24350848
+Swap:      3905532          0    3905532
+clock:1.89 user:1.53 sys:0.32 swapped:0 exitval:0 max:119228k
+** XP groupcreate 4
+*** XP groupcreate NP=4 plain
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 1122
+[0.000000] [mc_global/INFO] Visited states = 1788
+[0.000000] [mc_global/INFO] Executed transitions = 1121
+             total       used       free     shared    buffers     cached
+Mem:      24735240    2504792   22230448       8820      38544    1133656
+-/+ buffers/cache:    1332592   23402648
+Swap:      3905532          0    3905532
+clock:18.22 user:13.28 sys:4.86 swapped:0 exitval:0 max:1057748k
+*** XP groupcreate NP=4 KSM
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 1122
+[0.000000] [mc_global/INFO] Visited states = 1788
+[0.000000] [mc_global/INFO] Executed transitions = 1121
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1663260   23071980       8820      38564    1133656
+-/+ buffers/cache:     491040   24244200
+Swap:      3905532          0    3905532
+clock:19.55 user:14.06 sys:5.38 swapped:0 exitval:0 max:1059388k
+*** XP groupcreate NP=4 page
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 1122
+[0.000000] [mc_global/INFO] Visited states = 1788
+[0.000000] [mc_global/INFO] Executed transitions = 1121
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1587872   23147368       8820      38580    1133656
+-/+ buffers/cache:     415636   24319604
+Swap:      3905532          0    3905532
+clock:18.76 user:14.15 sys:4.53 swapped:0 exitval:0 max:142744k
+*** XP groupcreate NP=4 page+soft
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:0:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:1:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:2:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[Tremblay:3:(0) 0.000000] /root/simgrid/src/smpi/smpi_pmpi.c:3416: [smpi_pmpi/WARNING] Not yet implemented : PMPI_Errhandler_set. Please contact the Simgrid team if support is needed
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 1122
+[0.000000] [mc_global/INFO] Visited states = 1788
+[0.000000] [mc_global/INFO] Executed transitions = 1121
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1584220   23151020       8820      38596    1133656
+-/+ buffers/cache:     411968   24323272
+Swap:      3905532          0    3905532
+clock:17.84 user:13.49 sys:4.27 swapped:0 exitval:0 max:142804k
+** XP sendrecv2 2
+*** XP sendrecv2 NP=2 plain
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 357
+[0.000000] [mc_global/INFO] Visited states = 474
+[0.000000] [mc_global/INFO] Executed transitions = 356
+             total       used       free     shared    buffers     cached
+Mem:      24735240    2031896   22703344       8820      38596    1133656
+-/+ buffers/cache:     859644   23875596
+Swap:      3905532          0    3905532
+clock:3.70 user:2.51 sys:1.14 swapped:0 exitval:0 max:586740k
+*** XP sendrecv2 NP=2 KSM
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 357
+[0.000000] [mc_global/INFO] Visited states = 474
+[0.000000] [mc_global/INFO] Executed transitions = 356
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1636952   23098288       8820      38612    1133656
+-/+ buffers/cache:     464684   24270556
+Swap:      3905532          0    3905532
+clock:3.94 user:2.71 sys:1.18 swapped:0 exitval:0 max:587536k
+*** XP sendrecv2 NP=2 page
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 357
+[0.000000] [mc_global/INFO] Visited states = 474
+[0.000000] [mc_global/INFO] Executed transitions = 356
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1564352   23170888       8820      38612    1133656
+-/+ buffers/cache:     392084   24343156
+Swap:      3905532          0    3905532
+clock:3.73 user:2.78 sys:0.90 swapped:0 exitval:0 max:119052k
+*** XP sendrecv2 NP=2 page+soft
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 357
+[0.000000] [mc_global/INFO] Visited states = 474
+[0.000000] [mc_global/INFO] Executed transitions = 356
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1562988   23172252       8820      38628    1133656
+-/+ buffers/cache:     390704   24344536
+Swap:      3905532          0    3905532
+clock:3.46 user:2.60 sys:0.81 swapped:0 exitval:0 max:119192k
+** XP op_commutative 3
+*** XP op_commutative NP=3 plain
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 112
+[0.000000] [mc_global/INFO] Visited states = 159
+[0.000000] [mc_global/INFO] Executed transitions = 111
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1690344   23044896       8820      38628    1133656
+-/+ buffers/cache:     518060   24217180
+Swap:      3905532          0    3905532
+clock:1.96 user:1.48 sys:0.44 swapped:0 exitval:0 max:241804k
+*** XP op_commutative NP=3 KSM
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 112
+[0.000000] [mc_global/INFO] Visited states = 159
+[0.000000] [mc_global/INFO] Executed transitions = 111
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1573876   23161364       8820      38628    1133656
+-/+ buffers/cache:     401592   24333648
+Swap:      3905532          0    3905532
+clock:2.04 user:1.51 sys:0.48 swapped:0 exitval:0 max:241780k
+*** XP op_commutative NP=3 page
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 112
+[0.000000] [mc_global/INFO] Visited states = 159
+[0.000000] [mc_global/INFO] Executed transitions = 111
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1557480   23177760       8820      38644    1133640
+-/+ buffers/cache:     385196   24350044
+Swap:      3905532          0    3905532
+clock:1.99 user:1.55 sys:0.40 swapped:0 exitval:0 max:119124k
+*** XP op_commutative NP=3 page+soft
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 112
+[0.000000] [mc_global/INFO] Visited states = 159
+[0.000000] [mc_global/INFO] Executed transitions = 111
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1557000   23178240       8820      38644    1133656
+-/+ buffers/cache:     384700   24350540
+Swap:      3905532          0    3905532
+clock:1.90 user:1.54 sys:0.32 swapped:0 exitval:0 max:119144k
+** XP op_commutative 4
+*** XP op_commutative NP=4 plain
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 1239
+[0.000000] [mc_global/INFO] Visited states = 1960
+[0.000000] [mc_global/INFO] Executed transitions = 1238
+             total       used       free     shared    buffers     cached
+Mem:      24735240    2628784   22106456       8820      38660    1133656
+-/+ buffers/cache:    1456468   23278772
+Swap:      3905532          0    3905532
+clock:21.43 user:15.67 sys:5.67 swapped:0 exitval:0 max:1185828k
+*** XP op_commutative NP=4 KSM
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 1239
+[0.000000] [mc_global/INFO] Visited states = 1960
+[0.000000] [mc_global/INFO] Executed transitions = 1238
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1689032   23046208       8820      38676    1133656
+-/+ buffers/cache:     516700   24218540
+Swap:      3905532          0    3905532
+clock:22.63 user:16.48 sys:6.02 swapped:0 exitval:0 max:1187636k
+*** XP op_commutative NP=4 page
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 1239
+[0.000000] [mc_global/INFO] Visited states = 1960
+[0.000000] [mc_global/INFO] Executed transitions = 1238
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1592684   23142556       8820      38692    1133656
+-/+ buffers/cache:     420336   24314904
+Swap:      3905532          0    3905532
+clock:22.03 user:16.92 sys:5.02 swapped:0 exitval:0 max:147672k
+*** XP op_commutative NP=4 page+soft
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 1239
+[0.000000] [mc_global/INFO] Visited states = 1960
+[0.000000] [mc_global/INFO] Executed transitions = 1238
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1588640   23146600       8820      38708    1133656
+-/+ buffers/cache:     416276   24318964
+Swap:      3905532          0    3905532
+clock:21.02 user:16.22 sys:4.71 swapped:0 exitval:0 max:147548k
+** XP op_commutative 5
+*** XP op_commutative NP=5 plain
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 7309
+[0.000000] [mc_global/INFO] Visited states = 12062
+[0.000000] [mc_global/INFO] Executed transitions = 7308
+             total       used       free     shared    buffers     cached
+Mem:      24735240    6995844   17739396       8820      38996    1133656
+-/+ buffers/cache:    5823192   18912048
+Swap:      3905532          0    3905532
+clock:137.67 user:98.36 sys:38.89 swapped:0 exitval:0 max:5544552k
+*** XP op_commutative NP=5 KSM
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 7309
+[0.000000] [mc_global/INFO] Visited states = 12062
+[0.000000] [mc_global/INFO] Executed transitions = 7308
+             total       used       free     shared    buffers     cached
+Mem:      24735240    2067148   22668092       8820      39016    1133656
+-/+ buffers/cache:     894476   23840764
+Swap:      3905532          0    3905532
+clock:146.77 user:103.86 sys:42.26 swapped:0 exitval:0 max:5550004k
+*** XP op_commutative NP=5 page
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 7309
+[0.000000] [mc_global/INFO] Visited states = 12062
+[0.000000] [mc_global/INFO] Executed transitions = 7308
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1838440   22896800       8820      39036    1133656
+-/+ buffers/cache:     665748   24069492
+Swap:      3905532          0    3905532
+clock:142.31 user:105.91 sys:36.07 swapped:0 exitval:0 max:396656k
+*** XP op_commutative NP=5 page+soft
+[0.000000] [mc_safety/INFO] Check a safety property
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective gather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgather
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allgatherv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective allreduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoall
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective alltoallv
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective bcast
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective reduce_scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective scatter
+[0.000000] [smpi_coll/INFO] Switch to algorithm mpich for collective barrier
+[0.000000] [mc_safety/INFO] No property violation found.
+[0.000000] [mc_global/INFO] Expanded states = 7309
+[0.000000] [mc_global/INFO] Visited states = 12062
+[0.000000] [mc_global/INFO] Executed transitions = 7308
+             total       used       free     shared    buffers     cached
+Mem:      24735240    1838904   22896336       8820      39056    1133656
+-/+ buffers/cache:     666192   24069048
+Swap:      3905532          0    3905532
+clock:136.25 user:100.48 sys:35.40 swapped:0 exitval:0 max:396672k

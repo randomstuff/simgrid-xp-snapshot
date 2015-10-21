@@ -70,6 +70,15 @@
   - Sur l'autre dimension, comment détecter que les pages
     changent. KSM, COW kernel, COW user-space (avec mprotect ou avec
     userfaultfd), Dirty soft+hash, hash de tout.
+
+- model checking
+- whole application sampling
+- model-checking
+
+- RR
+- CRIU
+- live migration
+
 * Experiments
 ** Data Provenance
 ** Data Analysis
